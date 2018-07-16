@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let imagePicker = UIImagePickerController()
     var i = 0
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +27,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func selectImage(_ sender: UIButton) {
         self.imagePicker.allowsEditing = false
-        switch self.i {
-        case 0:
+        // sourceType .camera crashs
+        if self.i == 0 {
             self.imagePicker.sourceType = .photoLibrary
-        case 1:
+            self.i = 1
+        } else {
             self.imagePicker.sourceType = .savedPhotosAlbum
-        default:
-            // self.imagePicker.sourceType = .camera
-            print("crashs")
+            self.i = 0
         }
-        self.i = self.i == 2 ? 0 : self.i + 1
-        
-        present(imagePicker, animated: true, completion: nil)
+        present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // available options:
+        /*
+        UIImagePickerControllerMediaType
+        UIImagePickerControllerOriginalImage
+        UIImagePickerControllerEditedImage
+        UIImagePickerControllerCropRect
+        UIImagePickerControllerMediaURL
+        UIImagePickerControllerReferenceURL
+        UIImagePickerControllerMediaMetadata
+        */
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.contentMode = .scaleAspectFit
+            self.imageView.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

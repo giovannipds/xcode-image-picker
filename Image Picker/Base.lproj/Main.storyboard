@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9vQ-j7-yhy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-Nw-pPn">
                                 <rect key="frame" x="143" y="318" width="89" height="30"/>
                                 <state key="normal" title="Select Image"/>
@@ -29,13 +32,21 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Crv-Nw-pPn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DfR-sa-xkz"/>
+                            <constraint firstItem="9vQ-j7-yhy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kwp-tm-LDa"/>
+                            <constraint firstItem="9vQ-j7-yhy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="g06-yk-jG4"/>
+                            <constraint firstItem="9vQ-j7-yhy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gBC-cA-h1b"/>
+                            <constraint firstItem="9vQ-j7-yhy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jYW-OP-yIt"/>
                             <constraint firstItem="Crv-Nw-pPn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sVa-75-eHj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="9vQ-j7-yhy" id="6wP-Wb-t53"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="30.134932533733135"/>
         </scene>
     </scenes>
 </document>
